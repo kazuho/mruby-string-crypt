@@ -1,3 +1,4 @@
+#define _XOPEN_SOURCE /* for linux */
 #include <stdlib.h>
 #include <unistd.h>
 #include <mruby.h>
@@ -23,8 +24,6 @@ mrb_string_crypt(mrb_state* mrb, mrb_value self) {
 
 void
 mrb_mruby_string_crypt_gem_init(mrb_state* mrb) {
-  struct RClass *clazz;
-
   mrb_define_module_function(mrb, mrb->string_class, "crypt", mrb_string_crypt, MRB_ARGS_REQ(1));
 }
 
